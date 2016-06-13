@@ -44,6 +44,23 @@ type Tweet struct {
 	QuotedStatusID       int64                  `json:"quoted_status_id"`
 	QuotedStatusIDStr    string                 `json:"quoted_status_id_str"`
 	QuotedStatus         *Tweet                 `json:"quoted_status"`
+	Place                *Place                 `json:"place"`
+}
+
+type Place struct {
+	ID          string       `json:"id"`
+	URL         string       `json:"url"`
+	PlaceType   string       `json:"place_type"`
+	Name        string       `json:"name"`
+	FullName    string       `json:"full_name"`
+	CountryCode string       `json:"country_code"`
+	Country     string       `json:"country"`
+	BoundingBox *BoundingBox `json:"bounding_box"`
+}
+
+type BoundingBox struct {
+	Type        string         `json:"type"`
+	Coordinates [][][2]float64 `json:"coordinates"`
 }
 
 // Contributor represents a brief summary of a User identifiers.
