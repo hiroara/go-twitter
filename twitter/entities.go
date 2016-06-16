@@ -28,13 +28,26 @@ type URLEntity struct {
 // TODO: add Sizes
 type MediaEntity struct {
 	URLEntity
-	ID                int64  `json:"id"`
-	IDStr             string `json:"id_str"`
-	MediaURL          string `json:"media_url"`
-	MediaURLHttps     string `json:"media_url_https"`
-	SourceStatusID    int64  `json:"source_status_id"`
-	SourceStatusIDStr string `json:"source_status_id_str"`
-	Type              string `json:"type"`
+	ID                int64      `json:"id"`
+	IDStr             string     `json:"id_str"`
+	MediaURL          string     `json:"media_url"`
+	MediaURLHttps     string     `json:"media_url_https"`
+	SourceStatusID    int64      `json:"source_status_id"`
+	SourceStatusIDStr string     `json:"source_status_id_str"`
+	Type              string     `json:"type"`
+	VideoInfo         *VideoInfo `json:"video_info"`
+}
+
+type VideoInfo struct {
+	AspectRatio    [2]int    `json:"aspect_ratio"`
+	DurationMillis int64     `json:"duration_millis"`
+	Variants       []Variant `json:"variants"`
+}
+
+type Variant struct {
+	Bitrate     int64  `json:"bitrate"`
+	ContentType string `json:"content_type"`
+	URL         string `json:"url"`
 }
 
 // MentionEntity represents Twitter user mentions parsed from text.
